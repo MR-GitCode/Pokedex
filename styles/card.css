@@ -1,0 +1,59 @@
+.poke-img img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.poke-img:hover img {
+    transform: scale(1.5);
+}
+
+.grass{
+    background-color: rgb(83,169,58)
+}
+
+.fire{
+   background-color:  rgb(233, 64, 39)
+}
+
+.water{
+    background-color: rgb(81,129,195);
+}
+
+.bug{
+    background-color: rgb(92,162,98);
+}
+
+.normal{
+    background-color: rgb(164, 164, 164);
+}
+
+.poison{
+    background-color: rgb(164,104,168);
+}
+
+.electric{
+    background-color: rgb(187,177,60);
+}
+
+.ground{
+    background-color: rgb(163,101,33);
+}
+
+.fairy{
+    background-color: rgb(214,143,187)
+}
+
+.fighting{
+    background-color: rgb(208,128,73);
+}
+
+.psychic{
+    background-color: rgb(202,114,150);
+}
+
+.rock{
+    background-color: rgb(183,167,109) ;
+}
+
+.ghost{
+    background-color: rgb(102,94,167);
+}

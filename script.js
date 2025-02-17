@@ -2,7 +2,7 @@ function init() {
     loadDatabank()
 }
 
-const BASE_URL = "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0"
+const BASE_URL = "https://pokeapi.co/api/v2/pokemon?limit=100&offset=0"
 
 async function loadDatabank() {
     let response = await fetch(BASE_URL)
