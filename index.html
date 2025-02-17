@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/fonts.css">
+    <link rel="stylesheet" href="./styles/gallery.css">
+    <link rel="stylesheet" href="./styles/overlay.css">
+    <script src="./script.js"></script>
+    <script src="./scripts/template.js"></script>
+    <script src="./scripts/overlay.js"></script>
+</head>
+<body onload="init()">
+    <header>
+        <div class="mx-wth header">
+            <div class="fx-ct">
+                <img id="pokeball-icon" src="./assets/icons/pokeball-red.svg" alt="">
+                <img src="./assets/img/pokedex.svg" alt="">
+            </div>
+
+            <div class="fx-ct">
+                <!-- search -->
+                <input class="search-input" type="text" >
+                <div class="search-icon">
+                   <img id="search-icon" src="./assets/icons/instagram-search-icon.svg" alt="search"> 
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="poke-gallery fx-1">
+        <div class="mx-wth" id="poke-gallery"></div>
+    </section>
+
+    <footer></footer>
+
+</body>
+</html>

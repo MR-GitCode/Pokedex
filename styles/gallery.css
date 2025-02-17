@@ -1,0 +1,41 @@
+.poke-card{
+    height: 300px;
+    width: 200px;
+    color: white;
+}
+
+.header-card{
+    background-color: rgb(33, 43, 49);
+    height: 30px;
+    display: flex;
+    align-items: center;
+    padding: 0 5px 0 5px;
+    border-radius: 12px 12px 0 0;
+}
+
+#poke-amount{
+    padding-right: 10px;
+}
+
+.poke-img{
+    height: 200px;
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.poke-footer{
+    height: 50px;
+    background-color: rgb(33, 43, 49);
+    border-radius: 0 0 12px 12px;
+    display: flex;
+    justify-content: center;
+}
+
+#poke-gallery{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}

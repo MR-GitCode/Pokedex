@@ -1,0 +1,24 @@
+@font-face{
+    font-family: 'Press Start 2P';
+    src: url('./assets/fonts/Press_Start_2P/PressStart2P-Regular.ttf') format('truetype');
+}
+
+/* .ft-pt{
+    font-family: PT !important;
+}
+
+.ft-rb{
+    font-family: Rubik !important;
+} */
+
+.bold{
+    font-weight: 700;
+}
+
+.medium{
+    font-weight: 500;
+}
+
+.regular{
+    font-weight: 400;
+}

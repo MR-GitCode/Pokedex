@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+footer{
+    height: 80px;
+    background-color: rgb(33, 43, 49);
+}
+
+.poke-gallery{
+    background-color: rgb(226, 224, 227);
+    padding: 5%;
+}
+
+.mx-wth{ 
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+.fx-ct{
+    display: flex;
+    align-items: center;
+}
+
+.fx-1{
+    flex: 1;
+}
