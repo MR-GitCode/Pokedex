@@ -2,7 +2,7 @@ function init() {
     loadDatabank()
 }
 
-const BASE_URL = "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0"
+const BASE_URL = "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0"
 
 async function loadDatabank() {
     let response = await fetch(BASE_URL)
@@ -17,10 +17,25 @@ async function loadPokemon(pokeResults) {
         let name = pokeResults[pokeIndex].name;
         let url = pokeResults[pokeIndex].url;
         let specs = await loadSpecs(url);
-        console.log(specs);
-           
-        pokeGallery.innerHTML += renderGallery(name, specs)
+        let typ = specs.types[0].type.name;
+        // console.log(type2);  
+        pokeGallery.innerHTML += renderGallery(name, specs, typ)
     }
+}
+
+function loadTypes(specs) {
+       
+    let [type1, type2] = loadTypes(specs)
+    if (specs.types.length >1) {
+        let solt1 = specs.types[0].type.name;
+        let solt2 = specs.types[1].type.name;
+       } else
+    
+        
+    
+    // console.log(solt1);
+    console.log(specs.types);
+    return [solt1, solt2]; 
 }
 
 async function loadSpecs(url) {
@@ -29,18 +44,17 @@ async function loadSpecs(url) {
     return specsToJson;  
 }
 
-function renderGallery(name, specs) {
+function renderGallery(name, specs, typ) {
     return `<div class="poke-card">
                 <div class="header-card">
                     <p id="poke-amount">#${specs.id}</p>
                     <h3>${name}</h3>
                 </div>
-                <div class="poke-img">
+                <div class="poke-img ${typ}" >
                     <img src="${specs.sprites.versions['generation-v']['black-white'].animated.front_shiny}">
                 </div>
                 <div class="poke-footer">
                    <img src="">
                 </div>
             </div>`
-    
 }
