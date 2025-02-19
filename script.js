@@ -3,7 +3,8 @@ function init() {
     renderTypNav()
 }
 
-const BASE_URL = "https://pokeapi.co/api/v2/pokemon?limit=100&offset=0"
+const BASE_URL = "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0"
+const POKE_URL = "https://pokeapi.co/api/v2/pokemon/"
 
 async function loadDatabank() {
     let response = await fetch(BASE_URL)
@@ -26,9 +27,7 @@ async function loadPokemon(pokeResults) {
 
 function loadTypes(specs) {
     let pokeCardFooter = document.getElementById(`poke-footer${specs.id}`);
-    let types = specs.types;
-    console.log(types);
-    
+    let types = specs.types;   
     for (let i = 0; i < types.length; i++) {
         let typ = types[i].type;
         let typName = typ.name;
@@ -47,4 +46,18 @@ function renderTypNav() {
     for (let i = 0; i < types.length; i++) {
         typNavigation.innerHTML += renderNav(i)    
     }
+}
+
+async function loadOverlay(pokeId) {
+    document.getElementById('overlay').classList.remove('hidden');
+    // let response = await fetch(POKE_URL + pokeId);
+    // let data= await response.json();
+    // let name = data.species.name
+    // let stats
+    // for (let i = 0; i < array.length; i++) {
+    //     const element = array[i];
+        
+    // }
+    // console.log(stats);
+    // console.log(stats);
 }

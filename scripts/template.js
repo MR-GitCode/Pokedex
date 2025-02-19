@@ -1,5 +1,5 @@
 function renderGallery(name, specs, typ) {
-    return `<div class="poke-card">
+    return `<div onclick="loadOverlay(${specs.id})" class="poke-card">
                 <div class="header-card">
                     <p id="poke-amount">#${specs.id}</p>
                     <h3>${name}</h3>

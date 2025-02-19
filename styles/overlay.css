@@ -1,0 +1,41 @@
+.hidden{
+    display: none !important;
+}
+
+#overlay{
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(226, 224, 227,0.5)
+}
+
+.overlay-card{
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    width: 300px;
+}
+
+.overlay-header{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(33, 43, 49);
+    border-radius: 12px 12px 0 0;
+}
+
+.overlay-img{
+    background-color: yellow;
+    flex: 1;
+}
+
+.overlay-stats-headline{
+    height: 280px;
+    border-radius: 0 0 12px 12px;
+    background-color: rgb(50, 58, 63);
+}
