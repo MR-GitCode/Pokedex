@@ -25,14 +25,6 @@
     align-items: center;
 }
 
-.poke-footer{
-    height: 50px;
-    background-color: rgb(33, 43, 49);
-    border-radius: 0 0 12px 12px;
-    display: flex;
-    justify-content: center;
-}
-
 #poke-gallery{
     display: flex;
     gap: 10px;
