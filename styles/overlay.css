@@ -30,12 +30,39 @@
 }
 
 .overlay-img{
+    display: flex;
+    justify-content: center;
     background-color: yellow;
     flex: 1;
 }
 
-.overlay-stats-headline{
+.overlay-img img{
+    margin: 20px auto;
+}
+
+.overlay-stats{
     height: 280px;
+    background-color: rgb(50, 58, 63);
+}
+
+#headline{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 30px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#stats{
+   padding: 2% 0 0 5%; 
+   color: white;
+}
+
+.button{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
     border-radius: 0 0 12px 12px;
     background-color: rgb(50, 58, 63);
 }
