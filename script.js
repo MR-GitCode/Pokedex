@@ -1,8 +1,9 @@
 function init() {
     loadDatabank()
+    renderTypNav()
 }
 
-const BASE_URL = "https://pokeapi.co/api/v2/pokemon?limit=100&offset=0"
+const BASE_URL = "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0"
 
 async function loadDatabank() {
     let response = await fetch(BASE_URL)
@@ -43,6 +44,15 @@ async function loadSpecs(url) {
     let specsToJson = await specs.json(); 
     return specsToJson;  
 }
+
+function renderTypNav() {
+    let typNavigation = document.getElementById('typ-nav')
+    console.log(types[1].name);
+    for (let i = 0; i < types.length; i++) {
+        typNavigation.innerHTML += `<div class="nav-icon ${types[i].name}" onclick="showTypPoke(${types[i].name})"><img  src="${types[i].icon}" alt="${types[i].name}"></img></div>`    
+    }
+}
+
 
 function renderGallery(name, specs, typ) {
     return `<div class="poke-card">

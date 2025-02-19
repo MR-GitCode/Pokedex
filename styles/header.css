@@ -30,3 +30,28 @@ header{
 #pokeball-icon{
     width: 60px !important;
 }
+
+.nav-icon{
+    border-radius: 100%;
+    height: 30px;
+    width: 30px;
+    transition: 200ms all;
+}
+
+.nav-icon:hover{
+    filter: saturate(200%);
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.typ-nav img {
+    height: 80%;
+    width: 80%;
+    margin: 10%;
+}
+
+.typ-nav{
+   display: flex;
+   flex-wrap: wrap;
+   gap: 3px;
+}
