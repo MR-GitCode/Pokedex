@@ -19,24 +19,32 @@ async function loadPokemon(pokeResults) {
         let url = pokeResults[pokeIndex].url;
         let specs = await loadSpecs(url);
         let typ = specs.types[0].type.name;
-        // console.log(type2);  
         pokeGallery.innerHTML += renderGallery(name, specs, typ)
+        loadTypes(specs)
     }
+    
 }
 
 function loadTypes(specs) {
-       
-    let [type1, type2] = loadTypes(specs)
-    if (specs.types.length >1) {
-        let solt1 = specs.types[0].type.name;
-        let solt2 = specs.types[1].type.name;
-       } else
+    let pokeCardFooter = document.getElementById(`poke-footer${specs.id}`);
+    let types = specs.types;
+    console.log(types);
     
-        
     
-    // console.log(solt1);
-    console.log(specs.types);
-    return [solt1, solt2]; 
+    for (let i = 0; i < types.length; i++) {
+        let typ = types[i].type;
+        let typName = typ.name;
+        pokeCardFooter.innerHTML += renderTypSlots(typName);
+    }    
+
+
+    // if (specs.types.length >1) {
+    //     let solt1 = specs.types[0].type.name;
+    //     let solt2 = specs.types[1].type.name;
+    //    } else  
+    // // console.log(solt1);
+    // console.log(specs.types);
+    // return [solt1, solt2]; 
 }
 
 async function loadSpecs(url) {
@@ -47,24 +55,7 @@ async function loadSpecs(url) {
 
 function renderTypNav() {
     let typNavigation = document.getElementById('typ-nav')
-    console.log(types[1].name);
     for (let i = 0; i < types.length; i++) {
-        typNavigation.innerHTML += `<div class="nav-icon ${types[i].name}" onclick="showTypPoke(${types[i].name})"><img  src="${types[i].icon}" alt="${types[i].name}"></img></div>`    
+        typNavigation.innerHTML += renderNav(i)    
     }
-}
-
-
-function renderGallery(name, specs, typ) {
-    return `<div class="poke-card">
-                <div class="header-card">
-                    <p id="poke-amount">#${specs.id}</p>
-                    <h3>${name}</h3>
-                </div>
-                <div class="poke-img ${typ}" >
-                    <img src="${specs.sprites.versions['generation-v']['black-white'].animated.front_shiny}">
-                </div>
-                <div class="poke-footer">
-                   <img src="">
-                </div>
-            </div>`
 }
