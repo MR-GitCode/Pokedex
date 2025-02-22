@@ -1,5 +1,5 @@
 function renderGallery(name, specs, typName) {
-    return `<div onclick="loadOverlay(${specs.id})" class="poke-card">
+    return `<div onclick="loadOverlay(${specs.id}, overlay(event))" class="poke-card">
                 <div class="header-card">
                     <p id="poke-amount">#${specs.id}</p>
                     <h3>${name}</h3>
@@ -25,7 +25,7 @@ function renderTypSlots(typName) {
 }
 
 function renderOverlay(data, typ) {
-    return `<div  class="overlay-card">
+    return `<div onclick="overlay(event)" class="overlay-card">
             <div class="overlay-header">
                 <p>#${data.id}</p>
                 <h3>${data.species.name}</h3>

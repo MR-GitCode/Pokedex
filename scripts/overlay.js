@@ -62,3 +62,11 @@ function nextPokemon(pokeId) {
     let nextPokemon = pokeId +1;
     loadOverlay(nextPokemon )
 }
+
+function overlay(event) {
+    event.stopPropagation(); 
+}
+
+function closeOverlay() {
+    document.getElementById('overlay').classList.add('hidden'); 
+ }
