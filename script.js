@@ -3,13 +3,16 @@ function init() {
     renderTypNav()
 }
 
-const BASE_URL = "https://pokeapi.co/api/v2/pokemon?limit=30&offset=0"
+let pokeAmount = 20;
+
+const BASE_URL = `https://pokeapi.co/api/v2/pokemon?limit=${pokeAmount}&offset=0`
 const POKE_URL = "https://pokeapi.co/api/v2/pokemon/"
 
-async function loadDatabank() {
-    let response = await fetch(BASE_URL)
+async function loadDatabank(url = BASE_URL) {
+    let response = await fetch(url)
     let responseToJson = await response.json();
-    let pokeResults = responseToJson.results  
+    let pokeResults = responseToJson.results;
+    document.getElementById("poke-gallery").innerHTML = ""; 
     loadPokemon(pokeResults);
 }
 
