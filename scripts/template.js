@@ -1,10 +1,10 @@
-function renderGallery(name, specs, typ) {
+function renderGallery(name, specs, typName) {
     return `<div onclick="loadOverlay(${specs.id})" class="poke-card">
                 <div class="header-card">
                     <p id="poke-amount">#${specs.id}</p>
                     <h3>${name}</h3>
                 </div>
-                <div class="poke-img ${typ}" >
+                <div class="poke-img ${typName}" >
                     <img src="${specs.sprites.versions['generation-v']['black-white'].animated.front_shiny}">
                 </div>
                 <div id="poke-footer${specs.id}" class="poke-footer">
@@ -24,19 +24,16 @@ function renderTypSlots(typName) {
             </div>`
 }
 
-function renderOverlay(data) {
-    return ` <div  class="overlay-card">
+function renderOverlay(data, typ) {
+    return `<div  class="overlay-card">
             <div class="overlay-header">
                 <p>#${data.id}</p>
                 <h3>${data.species.name}</h3>
             </div>
 
-            <div class="overlay-img">
-                <img src="${data.sprites.versions['generation-v']['black-white'].animated.front_shiny}">
-                <div>
-                    Type
-                    <!--positon absolute ->container relative   -->
-                </div>
+            <div class="overlay-img-content ${typ}">
+                <img class="overlay-img" src="${data.sprites.versions['generation-v']['black-white'].animated.front_shiny}">
+                <div id="overlay-type${data.id}" class="typs-overlay"></div>
             </div>
 
             <div class="overlay-stats">
@@ -56,9 +53,9 @@ function renderOverlay(data) {
         </div>`
 }
 
-function renderStats(statName, statValue) {
-    return `<div>
-                <p><b>${statName}: </b>${statValue}</p>
+function renderTypOverlay(typName) {
+    return `<div class="icon-overlay ${typName}">
+            <img  src="./assets/icons/types/${typName}.svg" alt="${typName}"></img>
             </div>`
 }
 
@@ -67,6 +64,12 @@ function renderAbout(data) {
                 <p><b>Height:</b> ${data.height}</p>
                 <p><b>Weight:</b> ${data.weight}</p>
                 <p><b>Abilities:</b>pfad</p>
+            </div>`
+}
+
+function renderStats(statName, statValue) {
+    return `<div>
+                <p><b>${statName}: </b>${statValue}</p>
             </div>`
 }
 

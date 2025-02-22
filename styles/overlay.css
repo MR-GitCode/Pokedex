@@ -17,8 +17,9 @@
 .overlay-card{
     display: flex;
     flex-direction: column;
-    height: 500px;
-    width: 300px;
+    height: 600px;
+    width: 400px;
+    color: white;
 }
 
 .overlay-header{
@@ -29,19 +30,45 @@
     border-radius: 12px 12px 0 0;
 }
 
-.overlay-img{
+.overlay-img-content{
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: yellow;
+    position: relative;
     flex: 1;
 }
 
-.overlay-img img{
-    margin: 20px auto;
+.typs-overlay{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.icon-overlay{
+    border-radius: 100%;
+    border: solid 1px;
+    height: 35px;
+    width: 35px;
+    margin: auto 0;
+    transform: scale(1.5); 
+}
+
+.icon-overlay img {
+    height: 60%;
+    width: 60%;
+    margin: 20%;
+}
+
+.overlay-img{
+    transform: scale(2.5);     
 }
 
 .overlay-stats{
-    height: 280px;
+    height: 180px;
     background-color: rgb(50, 58, 63);
 }
 
@@ -56,7 +83,6 @@
 
 #stats{
    padding: 2% 0 0 5%; 
-   color: white;
 }
 
 .button{
