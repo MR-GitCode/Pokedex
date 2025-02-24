@@ -20,26 +20,66 @@
 <body onclick="closeOverlay()" onload="init()">
     <header>
         <div class="mx-wth header">
-            <div class="fx-ct">
+            <a class="fx-ct" href="./index.html">
                 <img id="pokeball-icon" src="./assets/icons/pokeball-red.svg" alt="">
-                <img src="./assets/img/pokedex.svg" alt="">
-            </div>
+                <img src="./assets/img/pokedex.svg" alt=""> 
+            </a>
 
             <div id="typ-nav" class="typ-nav"></div>
 
             <div class="fx-ct">
-                <!-- search -->
-                <input class="search-input" type="text" >
-                <div class="search-icon">
-                   <img id="search-icon" src="./assets/icons/instagram-search-icon.svg" alt="search"> 
-                </div>
+                <form>
+                    <!-- <label for="pokeSearch"></label> -->
+                    <input class="search-input" type="search" id="pokeSearch" name="q" oninput="searchPokemon(event)" placeholder="Search here...">
+                    <div class="search-icon">
+                        <img id="search-icon" src="./assets/icons/instagram-search-icon.svg" alt="search"> 
+                     </div>
+                </form>               
             </div>
         </div>
     </header>
 
     <section class="poke-gallery fx-1">
         <div class="mx-wth" id="poke-gallery"></div>
-        <button class="amountButton" onclick="changePokeAmount()">+20</button>
+        
+        <div class="pagebar">
+            <ul class="page-changer">
+                <li onclick="pageMinus()">
+                    <p><</p>
+                </li>
+                <li onclick="changePage(1)">
+                    <p>1</p>
+                </li>
+                <li onclick="changePage(2)">
+                    <p>2</p>
+                </li>
+                <li onclick="changePage(3)">
+                    <p>3</p>
+                </li>
+                <li onclick="changePage(4)">
+                    <p>4</p>
+                </li>
+                <li onclick="pagePlus()">
+                    <p>></p>
+                </li>
+            </ul>
+
+            <div>
+                <label for="pokeLimit"><span>Zeige:</span></label>
+                <select id="pokeLimit" onchange="amountPerSite()">
+                    <option value="10"selected>10</option>
+                    <option value="20" >20</option>
+                    <option value="30">30</option>
+                    <option value="100">100</option>
+                </select>
+                <span>pro Seite</span>
+            </div>
+        </div>
+
+        <div id="loading-spinner" class="hidden">
+            <span class="loader"><img src="./assets/icons/pokeball-red.svg" alt=""></span>
+            <h2>Loading ... </h2>
+        </div>
     </section>
 
     <section id="overlay" class="hidden"></section>

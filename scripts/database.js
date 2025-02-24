@@ -18,3 +18,9 @@ let types = [
     { name: "steel", icon: "./assets/icons/types/steel.svg" },
     { name: "fairy", icon: "./assets/icons/types/fairy.svg" }
 ];
+
+let pokeList = [];
+
+let currentPokemons = [];
+
+let galleryList = []

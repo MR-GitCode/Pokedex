@@ -32,6 +32,27 @@
     justify-content: center;
 }
 
-/* .amountButton{
-    he
-} */
+.pagebar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.page-changer{
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 5px;
+    font-size: 20px;
+}
+
+.page-changer li:hover{
+    cursor: pointer;
+    color: brown;
+    font-weight: bold;    
+}
+
+#pokeLimit{
+    cursor: pointer;
+}

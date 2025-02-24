@@ -32,3 +32,32 @@ footer{
 .fx-1{
     flex: 1;
 }
+
+#loading-spinner{
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgba(226, 224, 227);
+    justify-content: center;
+    align-items: center;
+    top: 100px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.loader {
+    width: 100px;
+    height: 100px;
+    animation: roll 1s ease-in-out infinite alternate;
+  }
+
+  @keyframes roll {
+    0% {
+      transform: translateX(-150%) rotate(0deg) ;
+    }
+    100% {
+      transform:  translateX(150%) rotate(360deg);
+    }
+  }
