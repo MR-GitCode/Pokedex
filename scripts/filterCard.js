@@ -37,6 +37,7 @@ function savePokemon(name, specs) {
         pokeList.push( {
         name: name,
         id: specs.id,
+        types: specs.types,
         url: POKE_URL + specs.id
     });
     }
@@ -52,4 +53,26 @@ function showPokeSearch(currentPokemons) {
     let pokeGallery = document.getElementById('poke-gallery');
     pokeGallery.innerHTML = "";
     loadPokemon(currentPokemons)    
+}
+
+function showTypPokemons(type) {
+   pokeLimit = document.getElementById(`pokeLimit`).value;
+   let pokeListOfTypes = [];
+    for (let i = 0; i < pokeLimit; i++) {
+        if (typeCompare(i, type)) {
+            pokeListOfTypes.push ({
+                name: pokeList[i].name,
+                url: pokeList[i].url 
+            })            
+        }
+    } 
+    console.log(pokeListOfTypes);
+    
+  loadPokemon(pokeListOfTypes)
+}
+
+function typeCompare(i, type) {
+   for (let typIndex = 0; typIndex < 2; typIndex++) {
+     return (pokeList[i].types[typIndex].type.name == type);
+   }   
 }

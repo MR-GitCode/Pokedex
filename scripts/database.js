@@ -23,4 +23,4 @@ let pokeList = [];
 
 let currentPokemons = [];
 
-let galleryList = []
+let pokeListOfTypes = []

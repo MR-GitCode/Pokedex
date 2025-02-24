@@ -13,7 +13,7 @@ function renderGallery(name, specs, typName) {
 }
 
 function renderNav(i) {
-    return `<div class="nav-icon ${types[i].name}" onclick="showTypPoke(${types[i].name})">
+    return `<div class="nav-icon ${types[i].name}" onclick="showTypPokemons('${types[i].name}')">
             <img  src="${types[i].icon}" alt="${types[i].name}"></img>
             </div>`
 }

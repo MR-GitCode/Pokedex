@@ -17,8 +17,10 @@ async function loadDatabank(url = BASE_URL) {
 }
 
 async function loadPokemon(pokeResults) {
+    console.log(pokeResults);    
     loadingSpinner()
     let pokeGallery = document.getElementById('poke-gallery');
+    pokeGallery.innerHTML = "";
     for (let pokeIndex = 0; pokeIndex < pokeResults.length; pokeIndex++) {
         let name = pokeResults[pokeIndex].name;
         let url = pokeResults[pokeIndex].url;
