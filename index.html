@@ -15,7 +15,6 @@
     <script src="./scripts/template.js"></script>
     <script src="./scripts/overlay.js"></script>
     <script src="./scripts/database.js"></script>
-    <script src="./scripts/filterCard.js"></script>
 </head>
 <body onclick="closeOverlay()" onload="init()">
     <header>
@@ -47,6 +46,7 @@
                 <li onclick="pageMinus()">
                     <p><</p>
                 </li>
+                <div class="page-changer page-numbers">
                 <li onclick="changePage(1)">
                     <p>1</p>
                 </li>
@@ -59,6 +59,7 @@
                 <li onclick="changePage(4)">
                     <p>4</p>
                 </li>
+                </div>
                 <li onclick="pagePlus()">
                     <p>></p>
                 </li>
@@ -70,7 +71,7 @@
                     <option value="10"selected>10</option>
                     <option value="20" >20</option>
                     <option value="30">30</option>
-                    <option value="100">100</option>
+                    <option value="40">40</option>
                 </select>
                 <span>pro Seite</span>
             </div>
@@ -87,4 +88,5 @@
     <footer></footer>
 
 </body>
+<script src="./scripts/filterCard.js"></script>
 </html>

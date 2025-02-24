@@ -78,3 +78,10 @@ function renderEvolution() {
                 <img src="" alt="">
             </div>`
 }
+
+function renderPageNumber(pageNum) {
+    return `<li onclick="changePage(${pageNum})">
+                <p>${pageNum}</p>
+            </li>`
+}
+
