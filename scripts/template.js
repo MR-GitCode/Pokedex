@@ -29,11 +29,16 @@ function renderOverlay(data, typ) {
             <div class="overlay-header">
                 <p>#${data.id}</p>
                 <h3>${data.species.name}</h3>
+                <img onclick="closeOverlay()" id="close-button" src="./assets/icons/remove-close-round-red-icon.svg" alt="x">
             </div>
 
             <div class="overlay-img-content ${typ}">
                 <img class="overlay-img" src="${data.sprites.versions['generation-v']['black-white'].animated.front_shiny}">
                 <div id="overlay-type${data.id}" class="typs-overlay"></div>
+                <div class="overlay-buttons" >
+                    <p class="bt button-left" onclick="beforePokemon(${data.id})"></p>
+                    <p class="bt button-right" onclick="nextPokemon(${data.id})"></p>
+                </div> 
             </div>
 
             <div class="overlay-stats">
@@ -43,13 +48,8 @@ function renderOverlay(data, typ) {
                     <h5 onclick="loadEvolution(${data.id})">Evolution</h5>
                 </div>
 
-                <div id="stats"></div>
-            </div>
-
-            <div class="button">
-                <button onclick="beforePokemon(${data.id})">left</button>
-                <button onclick="nextPokemon(${data.id})">right</button>
-            </div>            
+                <div class="stats" id="stats"></div>
+            </div>           
         </div>`
 }
 
@@ -60,10 +60,18 @@ function renderTypOverlay(typName) {
 }
 
 function renderAbout(data) {
-    return `<div>
-                <p><b>Height:</b> ${data.height}</p>
-                <p><b>Weight:</b> ${data.weight}</p>
-                <p><b>Abilities:</b>pfad</p>
+    return `<div class="stats">
+                <div class="stats-about">
+                    <b>Height:</b>
+                    <p>${data.height / 10} m</p>
+                </div>
+                <div class="stats-about">
+                    <b>Weight:</b>
+                    <p>${data.weight / 10} kg</p>
+                </div>
+                <div class="stats-about">
+                    <b>Abilities:</b>
+                    <div id="abilities"></div>
             </div>`
 }
 
@@ -83,5 +91,9 @@ function renderPageNumber(pageNum) {
     return `<li onclick="changePage(${pageNum})">
                 <p>${pageNum}</p>
             </li>`
+}
+
+function renderAbilities(ability) {
+    return `<p>${ability}</p>`
 }
 

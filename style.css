@@ -1,6 +1,7 @@
 *{
     margin: 0;
     scroll-behavior: smooth;
+    font-family: Rubik;
 }
 
 body{
@@ -12,6 +13,10 @@ body{
 footer{
     height: 80px;
     background-color: rgb(33, 43, 49);
+}
+
+h3 {
+    text-transform: capitalize;
 }
 
 .poke-gallery{

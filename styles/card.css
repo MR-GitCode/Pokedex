@@ -1,16 +1,21 @@
 .poke-img img {
     transition: transform 0.3s ease-in-out;
+    filter: drop-shadow(3px 5px 3px rgba(0, 0, 0, 0.5));
 }
 
 .poke-img:hover img {
     transform: scale(1.5); 
 }
 
+.poke-card{
+    filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.5));
+}
+
 .poke-card:hover{
-    filter: saturate(200%);
     transform: scale(1.05);
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
+    filter: saturate(150%) drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.5));
 }
 
 .poke-footer{
@@ -20,6 +25,21 @@
     display: flex;
     gap: 10px;
     justify-content: center;
+}
+
+.stats{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.stats-about{
+    display: flex;
+    gap: 5px;
+}
+
+.stats-about p{
+    padding-left: 10px;
 }
 
 

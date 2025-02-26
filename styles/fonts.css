@@ -1,15 +1,20 @@
 @font-face{
-    font-family: 'Press Start 2P';
-    src: url('./assets/fonts/Press_Start_2P/PressStart2P-Regular.ttf') format('truetype');
+    font-family: '2P';
+    src: url('../assets/fonts/Press_Start_2P/PressStart2P-Regular.ttf') format('truetype');
 }
 
-/* .ft-pt{
-    font-family: PT !important;
+@font-face {
+    font-family: 'Rubik';
+    src: url('../assets/fonts/Rubik/Rubik-VariableFont_wght.ttf'); 
+}
+
+.ft-pt{
+    font-family: 2P !important;
 }
 
 .ft-rb{
-    font-family: Rubik !important;
-} */
+    font-family: Ubuntu !important;
+}
 
 .bold{
     font-weight: 700;

@@ -28,9 +28,18 @@ async function getData(pokeId) {
 async function loadAbout(pokeId) {
     let pokeStats = document.getElementById('stats');
     pokeStats.innerHTML = "";
-    let data = await getData(pokeId)
-    console.log(data);    
+    let data = await getData(pokeId);
     pokeStats.innerHTML = renderAbout(data);
+    loadAbilities(data);
+}
+
+function loadAbilities(data) {
+    let abilitiesContent = document.getElementById('abilities');
+    let abilities = data.abilities;
+    for (let i = 0; i < abilities.length; i++) {
+        let ability = abilities[i].ability.name;
+       abilitiesContent.innerHTML += renderAbilities(ability);
+    }
 }
 
 async function loadStats(pokeId) {
