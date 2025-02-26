@@ -21,7 +21,7 @@ function loadTypesOverlay(data) {
 
 async function getData(pokeId) {
     let response = await fetch(POKE_URL + pokeId);
-    let data= await response.json();
+    let data= await response.json();  
     return data;
 }
 
@@ -29,7 +29,7 @@ async function loadAbout(pokeId) {
     let pokeStats = document.getElementById('stats');
     pokeStats.innerHTML = "";
     let data = await getData(pokeId);
-    pokeStats.innerHTML = renderAbout(data);
+    pokeStats.innerHTML = renderAbout(data);   
     loadAbilities(data);
 }
 
@@ -55,11 +55,45 @@ async function loadStats(pokeId) {
 }
 
 async function loadEvolution(pokeId) {
+    let response = await fetch(SPECIES_URL + pokeId);
+    let data= await response.json();
+    let evoChainURL = data.evolution_chain.url;  
+    let responseEvoChainURL = await fetch(evoChainURL);
+    let evolutionsData = await responseEvoChainURL.json(); 
+    try{        
+        let firstForm = evolutionsData.chain.species.name;
+        pushToList(firstForm);
+        let secondForm = evolutionsData.chain.evolves_to[0].species.name;
+        pushToList(secondForm);
+        let thirdForm = evolutionsData.chain.evolves_to[0].evolves_to[0].species.name;
+        pushToList(thirdForm); 
+    } catch (error) {
+        // console.log(error);
+    }
+    renderEvolutions()
+}
+
+function pushToList(form) {
+    console.log(form);
+    
+    evoList.push( {
+        name: form,
+        url: POKE_URL + form
+    });
+    console.log(evoList);
+    
+}
+
+async function renderEvolutions() {
     let pokeStats = document.getElementById('stats');
     pokeStats.innerHTML = "";
-    let data = await getData(pokeId)
-    let statsEvolution = data
-    pokeStats.innerHTML += renderEvolution();
+    for (let i = 0; i < evoList.length; i++) {
+        let pokemon = evoList[i].name;
+        let data = await getData(pokemon);
+        console.log(data);
+        pokeStats.innerHTML += evolutionTemplate(data)
+    }
+    evoList = [];
 }
 
 function beforePokemon(pokeId) {

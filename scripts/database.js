@@ -23,4 +23,6 @@ let pokeList = [];
 
 let currentPokemons = [];
 
-let pokeListOfTypes = []
+let pokeListOfTypes = [];
+
+let evoList = [];

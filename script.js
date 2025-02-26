@@ -7,7 +7,7 @@ let pokeAmount = 10;
 
 const BASE_URL = `https://pokeapi.co/api/v2/pokemon?limit=${pokeAmount}&offset=0`
 const POKE_URL = "https://pokeapi.co/api/v2/pokemon/"
-const EVOLUTION_URL = "https://pokeapi.co/api/v2/pokemon-species/"
+const SPECIES_URL = "https://pokeapi.co/api/v2/pokemon-species/"
 
 async function loadDatabank(url = BASE_URL) {
     let response = await fetch(url)

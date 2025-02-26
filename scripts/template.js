@@ -81,9 +81,9 @@ function renderStats(statName, statValue) {
             </div>`
 }
 
-function renderEvolution() {
+function evolutionTemplate(data) {
     return `<div class="stats">
-                <img src="" alt="">
+                <img class="evo-img" src="${data.sprites.versions['generation-v']['black-white'].animated.front_shiny}" alt="${data.name}">
             </div>`
 }
 
