@@ -15,16 +15,18 @@ header{
     width: 30px !important;
 }
 
-.search-icon{
-    width: 40px;
+.search-input{
+    border-radius: 30px;
     height: 35px;
-    background: red;
-    border-radius: 0 30px 30px 0;
+    cursor: pointer;
 }
 
-.search-input{
-    border-radius: 30px 0 0 30px;
-    height: 35px;
+.search-input::placeholder{
+    padding-left: 10px;
+}
+
+#nav-menu-icon{
+    display: none;
 }
 
 #pokeball-icon{
@@ -59,4 +61,80 @@ header{
    flex-wrap: wrap;
    gap: 4px;
    max-width: calc(9 * 36px);
+}
+
+.menu-pk-gy{
+    padding-top: 95px;
+}
+
+.menu-typ-nav{
+    display: flex !important;
+    top: 60px;
+ }
+
+ .menu-nav{
+    display: none;
+    position: absolute;
+    top: 60px;
+    background-color: rgb(33, 43, 49);
+    height: 75px;
+    width: 100%;
+    left: 0;
+}
+
+.menu-hidden{
+    display: flex;
+}
+
+@media (max-width: 1100px) {
+    .header {
+        padding: 0 2%;
+    }
+
+    #title-img {
+        width: 200px;
+    }
+}
+
+@media (max-width: 900px) {
+    .header {
+        height: 60px;
+    }
+
+    #pokeball-icon{
+        width: 50px !important;
+    }
+
+    #title-img {
+        display: flex;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+    }
+
+    .typ-nav{
+        display: none;
+    }
+
+    #nav-menu-icon{
+        display: flex;
+        width: 30px;
+        padding-left: 10px;
+        cursor: pointer;
+    }
+}
+
+@media (min-width: 900px) {
+    .menu-nav{
+        display: none;
+    }
+
+    .menu-pk-gy{
+        padding: 3%;
+    }
+
+    .menu-typ-nav{
+        top: 0;
+        padding-top: 18px;
+     }
 }

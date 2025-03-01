@@ -21,20 +21,16 @@
     <header>
         <div class="mx-wth header">
             <a class="fx-ct" href="./index.html">
-                <img id="pokeball-icon" src="./assets/icons/pokeball-red.svg" alt="">
-                <img src="./assets/img/pokedex.svg" alt=""> 
+                <img id="pokeball-icon" src="./assets/icons/pokeball-red.svg">
+                <img id="title-img" src="./assets/img/pokedex.svg"> 
             </a>
-
+            <div class="menu-nav"></div>
             <div id="typ-nav" class="typ-nav"></div>
-
             <div class="fx-ct">
                 <form>
-                    <!-- <label for="pokeSearch"></label> -->
                     <input class="search-input" type="search" id="pokeSearch" name="q" oninput="searchPokemon(event)" placeholder="Search here...">
-                    <div class="search-icon">
-                        <img id="search-icon" src="./assets/icons/instagram-search-icon.svg" alt="search"> 
-                     </div>
-                </form>               
+                </form>
+                <img id="nav-menu-icon" onclick="toggleMenu()" src="./assets/icons/hamburger-menu-icon.svg">               
             </div>
         </div>
     </header>

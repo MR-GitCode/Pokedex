@@ -63,3 +63,9 @@ function loadingSpinner() {
 function disableLoadingSpinner() {
     document.getElementById('loading-spinner').classList.add('hidden');
 }
+
+function toggleMenu() {
+    document.querySelector(".menu-nav").classList.toggle("menu-hidden");
+    document.querySelector(".typ-nav").classList.toggle("menu-typ-nav");
+    document.querySelector(".poke-gallery").classList.toggle("menu-pk-gy");
+}

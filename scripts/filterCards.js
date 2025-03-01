@@ -18,7 +18,7 @@ function changePage(page) {
 
 function changePageNumbers() {
     let pageChanger = document.querySelector(".page-numbers");
-    pageChanger.innerHTML = ""; // Lösche alten Inhalt
+    pageChanger.innerHTML = "";
     
     for (let i = 0; i < 4; i++) {
         let pageNum = currentPage + i;
@@ -40,13 +40,6 @@ function pageMinus() {
         changePage(currentPage);
     }
 }
-
-// function changePokeAmount(amount) {
-//     pokeAmount = amount;
-//     const newBaseUrl = `https://pokeapi.co/api/v2/pokemon?limit=${pokeAmount}&offset=0`;
-//     // console.log(newBaseUrl);
-//     loadDatabank(newBaseUrl);
-// }
 
 function savePokemon(name, specs) {
     if (!pokeList.find(pokemon => pokemon.id === specs.id)) {
