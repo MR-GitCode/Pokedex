@@ -27,11 +27,14 @@ async function getData(pokeId) {
 }
 
 async function loadAbout(pokeId) {
+    removeHeadlineActive();
+    document.getElementById('headline-about').classList.add('active');
     let pokeStats = document.getElementById('stats');
     pokeStats.innerHTML = "";
     let data = await getData(pokeId);
     pokeStats.innerHTML = renderAbout(data);   
     loadAbilities(data);
+    
 }
 
 function loadAbilities(data) {
@@ -44,6 +47,8 @@ function loadAbilities(data) {
 }
 
 async function loadStats(pokeId) {
+    removeHeadlineActive();
+    document.getElementById('headline-stats').classList.add('active');
     let pokeStats = document.getElementById('stats');
     pokeStats.innerHTML = "";
     let data = await getData(pokeId)
@@ -56,6 +61,8 @@ async function loadStats(pokeId) {
 }
 
 async function loadEvolution(pokeId) {
+    removeHeadlineActive();
+    document.getElementById('headline-evolution').classList.add('active');
     let response = await fetch(SPECIES_URL + pokeId);
     let data= await response.json();
     let evoChainURL = data.evolution_chain.url;  
@@ -69,20 +76,21 @@ async function loadEvolution(pokeId) {
         let thirdForm = evolutionsData.chain.evolves_to[0].evolves_to[0].species.name;
         pushToList(thirdForm); 
     } catch (error) {
-        // console.log(error);
     }
     renderEvolutions()
 }
 
+function removeHeadlineActive() {
+    document.getElementById('headline-about').classList.remove('active');
+    document.getElementById('headline-stats').classList.remove('active');
+    document.getElementById('headline-evolution').classList.remove('active');
+}
+
 function pushToList(form) {
-    console.log(form);
-    
     evoList.push( {
         name: form,
         url: POKE_URL + form
-    });
-    console.log(evoList);
-    
+    });    
 }
 
 async function renderEvolutions() {

@@ -43,9 +43,15 @@ function renderOverlay(data, typ) {
 
             <div class="overlay-stats">
                 <div id="headline">
-                    <h5 onclick="loadAbout(${data.id})">About</h5>
-                    <h5 onclick="loadStats(${data.id})">Stats</h5>
-                    <h5 onclick="loadEvolution(${data.id})">Evolution</h5>
+                    <div id="headline-about" class="headline-stats">
+                        <h5 onclick="loadAbout(${data.id})">About</h5>
+                    </div>
+                    <div id="headline-stats" class="headline-stats">
+                        <h5 onclick="loadStats(${data.id})">Stats</h5>
+                    </div>
+                    <div id="headline-evolution" class="headline-stats">
+                        <h5 onclick="loadEvolution(${data.id})">Evolution</h5>
+                    </div>                    
                 </div>
 
                 <div class="stats" id="stats"></div>
