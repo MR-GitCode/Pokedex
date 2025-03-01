@@ -1,5 +1,6 @@
 async function loadOverlay(pokeId) {
     document.getElementById('overlay').classList.remove('hidden');
+    document.body.classList.add("no-scroll");
     let overlay = document.getElementById('overlay');
     let data = await getData(pokeId)
     let typ = data.types[0].type.name;
@@ -86,12 +87,13 @@ function pushToList(form) {
 
 async function renderEvolutions() {
     let pokeStats = document.getElementById('stats');
-    pokeStats.innerHTML = "";
+    pokeStats.innerHTML = "<div id='evolution'></div>";
+    let pokeEvo = document.getElementById('evolution')
     for (let i = 0; i < evoList.length; i++) {
         let pokemon = evoList[i].name;
         let data = await getData(pokemon);
         console.log(data);
-        pokeStats.innerHTML += evolutionTemplate(data)
+        pokeEvo.innerHTML += evolutionTemplate(data)
     }
     evoList = [];
 }
@@ -111,5 +113,6 @@ function overlay(event) {
 }
 
 function closeOverlay() {
-    document.getElementById('overlay').classList.add('hidden'); 
+    document.getElementById('overlay').classList.add('hidden');
+    document.body.classList.remove("no-scroll"); 
  }

@@ -61,15 +61,15 @@ function renderTypOverlay(typName) {
 
 function renderAbout(data) {
     return `<div class="stats">
-                <div class="stats-about">
+                <div class="stats-info">
                     <b>Height:</b>
                     <p>${data.height / 10} m</p>
                 </div>
-                <div class="stats-about">
+                <div class="stats-info">
                     <b>Weight:</b>
                     <p>${data.weight / 10} kg</p>
                 </div>
-                <div class="stats-about">
+                <div class="stats-info">
                     <b>Abilities:</b>
                     <div id="abilities"></div>
             </div>`
@@ -77,13 +77,17 @@ function renderAbout(data) {
 
 function renderStats(statName, statValue) {
     return `<div>
-                <p><b>${statName}: </b>${statValue}</p>
+                <div class="stats-info">
+                    <b>${statName}: </b>
+                    <p>${statValue}</p>
+                </div>
             </div>`
 }
 
 function evolutionTemplate(data) {
-    return `<div class="stats">
+    return `<div class="evolution">
                 <img class="evo-img" src="${data.sprites.versions['generation-v']['black-white'].animated.front_shiny}" alt="${data.name}">
+                <p>${data.name}</p>
             </div>`
 }
 

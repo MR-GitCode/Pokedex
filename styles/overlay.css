@@ -2,6 +2,10 @@
     display: none !important;
 }
 
+body.no-scroll {
+    overflow: hidden;
+}
+
 #overlay{
     display: flex;
     position: fixed;
@@ -104,7 +108,7 @@
 }
 
 #stats{
-   padding: 2% 0 0 5%;
+   padding: 3px 0 0 5%;
 }
 
 #abilities{
@@ -149,7 +153,39 @@
     background-color: #d1d1d1;
 }
 
+.stats{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.stats-info{
+    display: flex;
+    gap: 5px;
+}
+
+.stats-info p{
+    padding-left: 10px;
+}
 
 .evo-img{
     width: 90px;
+}
+
+#evolution{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 5% 0 0;
+    text-transform: capitalize;
+}
+
+#evolution img{
+    width: 70px;
+}
+
+.evolution{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 120px;
 }

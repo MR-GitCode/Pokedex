@@ -27,32 +27,6 @@
     justify-content: center;
 }
 
-.stats{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.stats-about{
-    display: flex;
-    gap: 5px;
-}
-
-.stats-about p{
-    padding-left: 10px;
-}
-
-
-/* .wrapper {
-    width: 800px;
-    margin: auto auto;
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: repeat(6, 1fr);
-    align-content: center;
-    align-items: center;
-} */
-
 .icon {
     border-radius: 100%;
     height: 35px;
