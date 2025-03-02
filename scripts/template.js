@@ -13,7 +13,7 @@ function renderGallery(name, specs, typName) {
 }
 
 function renderNav(i) {
-    return `<div class="nav-icon ${types[i].name} image-container" onclick="showTypPokemons('${types[i].name}')" data-alt="${types[i].name}">
+    return `<div class="nav-icon ${types[i].name} nav-img-container" onclick="showTypPokemons('${types[i].name}')" data-alt="${types[i].name}">
             <img  src="${types[i].icon}" alt="${types[i].name}"></img>
             </div>`
 }
@@ -106,4 +106,3 @@ function renderPageNumber(pageNum) {
 function renderAbilities(ability) {
     return `<p>${ability}</p>`
 }
-

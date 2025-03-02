@@ -98,49 +98,6 @@ body.no-scroll {
     border-radius: 0 0 12px 12px;
 }
 
-#headline{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 30px;
-    font-size: 20px;
-    cursor: pointer;
-    background-color: rgb(33, 43, 49);
-    box-shadow: 0px 1px 5px 0px #000000;
-}
-
-.headline-stats{
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30px;
-    transition: height 0.4s ease-in-out, font-size 0.3s ease-in-out, background-color 0.3s ease-in-out;  
-}
-
-.headline-stats:hover{
-    background-color: rgba(50, 58, 63, 0.8);
-    border: solid 1px #000000;
-    height: 30px;
-    font-size: 24px; 
- 
-}
-
-.active{
-    background-color: rgba(50, 58, 63, 0.8);
-    border: solid 1px #000000;
-    height: 30px;
-    font-size: 24px; 
-}
-
-#stats{
-   padding: 5px 0 0 5%;
-}
-
-#abilities{
-    text-transform: capitalize;
-}
-
 .overlay-buttons{
     display: flex;
     justify-content: space-between;
@@ -177,41 +134,4 @@ body.no-scroll {
 .button:active {
     transform: scale(0.9);
     background-color: #d1d1d1;
-}
-
-.stats{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.stats-info{
-    display: flex;
-    gap: 5px;
-}
-
-.stats-info p{
-    padding-left: 10px;
-}
-
-.evo-img{
-    width: 90px;
-}
-
-#evolution{
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 5% 0 0;
-    text-transform: capitalize;
-}
-
-#evolution img{
-    width: 70px;
-}
-
-.evolution{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 120px;
 }

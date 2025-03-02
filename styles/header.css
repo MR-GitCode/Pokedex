@@ -42,7 +42,7 @@ header{
 
 }
 
-.image-container::after {
+.nav-img-container::after {
     content: attr(data-alt);
     position: absolute;
     bottom: -30px;
@@ -57,7 +57,7 @@ header{
     pointer-events: none;
 }
 
-.image-container:hover::after {
+.nav-img-container:hover::after {
     opacity: 1;
 }
 

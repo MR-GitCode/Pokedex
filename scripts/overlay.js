@@ -34,7 +34,6 @@ async function loadAbout(pokeId) {
     let data = await getData(pokeId);
     pokeStats.innerHTML = renderAbout(data);   
     loadAbilities(data);
-    
 }
 
 function loadAbilities(data) {
@@ -63,18 +62,12 @@ async function loadStats(pokeId) {
 async function loadEvolution(pokeId) {
     removeHeadlineActive();
     document.getElementById('headline-evolution').classList.add('active');
-    let response = await fetch(SPECIES_URL + pokeId);
-    let data= await response.json();
-    let evoChainURL = data.evolution_chain.url;  
-    let responseEvoChainURL = await fetch(evoChainURL);
-    let evolutionsData = await responseEvoChainURL.json(); 
+    let data= await (await fetch(SPECIES_URL + pokeId)).json();
+    let evolutionsData = await (await fetch(data.evolution_chain.url)).json(); 
     try{        
-        let firstForm = evolutionsData.chain.species.name;
-        pushToList(firstForm);
-        let secondForm = evolutionsData.chain.evolves_to[0].species.name;
-        pushToList(secondForm);
-        let thirdForm = evolutionsData.chain.evolves_to[0].evolves_to[0].species.name;
-        pushToList(thirdForm); 
+        pushToList(evolutionsData.chain.species.name);
+        pushToList(evolutionsData.chain.evolves_to[0].species.name);
+        pushToList(evolutionsData.chain.evolves_to[0].evolves_to[0].species.name); 
     } catch (error) {
     }
     renderEvolutions()
@@ -107,7 +100,7 @@ async function renderEvolutions() {
 }
 
 function beforePokemon(pokeId) {
-    let beforePokemon = pokeId -1; //Überlegen was soll passieren bei Id=0 
+    let beforePokemon = pokeId -1;
     loadOverlay(beforePokemon)
 }
 

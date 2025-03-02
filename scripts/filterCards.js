@@ -51,7 +51,6 @@ function pageEnd() {
     changePage(maxPages);
 }
 
-
 function savePokemon(name, specs) {
     if (!pokeList.find(pokemon => pokemon.id === specs.id)) {
         pokeList.push( {
@@ -88,10 +87,8 @@ function showTypPokemons(type) {
             pokeListOfTypes.push ({
                 name: pokeList[i].name,
                 url: pokeList[i].url 
-            })            
-        }
+            })}
     }
-    console.log(pokeListOfTypes);
     disableLoadingSpinner() 
     loadPokemon(pokeListOfTypes)
 }
