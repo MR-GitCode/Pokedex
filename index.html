@@ -41,6 +41,9 @@
         
         <div class="pagebar">
             <ul class="page-changer">
+                <li onclick="pageFirst()">
+                    <p><<</p>
+                </li>
                 <li onclick="pageMinus()">
                     <p><</p>
                 </li>
@@ -61,13 +64,16 @@
                 <li onclick="pagePlus()">
                     <p>></p>
                 </li>
+                <li onclick="pageEnd()">
+                    <p>>></p>
+                </li>
             </ul>
 
             <div>
                 <label for="pokeLimit"><span>Zeige:</span></label>
                 <select id="pokeLimit" onchange="amountPerSite()">
                     <option value="10"selected>10</option>
-                    <option value="20" >20</option>
+                    <option value="20">20</option>
                     <option value="30">30</option>
                     <option value="40">40</option>
                 </select>

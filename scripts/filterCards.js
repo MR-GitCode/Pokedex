@@ -4,6 +4,7 @@ let maxPages = Math.ceil(1000 / amountPerPage);
 
 function amountPerSite() {
     pokeAmount = parseInt(document.getElementById("pokeLimit").value);
+    amountPerPage = pokeAmount;
     changePage(currentPage);
     changePageNumbers();
 }
@@ -41,6 +42,16 @@ function pageMinus() {
     }
 }
 
+function pageFirst() {
+    changePage(1)
+}
+
+function pageEnd() {
+    let maxPages = Math.ceil(1000 / amountPerPage);
+    changePage(maxPages);
+}
+
+
 function savePokemon(name, specs) {
     if (!pokeList.find(pokemon => pokemon.id === specs.id)) {
         pokeList.push( {
@@ -54,6 +65,10 @@ function savePokemon(name, specs) {
 
 function searchPokemon(event) {
     const input = event.target.value.toLowerCase();
+    if (input.length < 3) {
+        document.getElementById('poke-gallery').innerHTML = "";
+        return;
+    }
     currentPokemons = pokeList.filter(pokemon => pokemon.name.includes(input))
     showPokeSearch(currentPokemons)
 }
