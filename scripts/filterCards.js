@@ -1,4 +1,4 @@
-let maxPokemons = 640;
+let maxPokemons = 600;
 let currentPage = 1;
 let amountPerPage = parseInt(document.getElementById('pokeLimit').value);
 let maxPages = Math.ceil(maxPokemons / amountPerPage);
@@ -6,7 +6,7 @@ let maxPages = Math.ceil(maxPokemons / amountPerPage);
 function amountPerSite() {
     pokeAmount = parseInt(document.getElementById("pokeLimit").value);
     amountPerPage = pokeAmount;
-    changePage(currentPage);
+    proveMaxPage();
     changePageNumbers();
 }
 
@@ -48,8 +48,13 @@ function pageFirst() {
 }
 
 function pageEnd() {
-    let maxPages = Math.ceil(maxPokemons / amountPerPage);
+    maxPages = Math.ceil(maxPokemons / amountPerPage);
     changePage(maxPages);
+}
+
+function proveMaxPage() {
+    maxPages = Math.ceil(maxPokemons / amountPerPage);
+    changePage(maxPages)
 }
 
 function savePokemon(name, specs) {
@@ -93,7 +98,7 @@ function showTypPokemons(type) {
     disableLoadingSpinner()
     configPagebar(type)
     loadPokemon(pokeListOfTypes)
-    emptyMessage(pokeListOfTypes)
+    searchTypPokemon(pokeListOfTypes, type)
 }
 
 function typeCompare(i, type) {
@@ -120,7 +125,8 @@ function configPagebar(i) {
 }
 
 async function loadMore(type) {
-    pokeAmount += 100;
+    loadingSpinner()
+    pokeAmount += 50;
     let BASE_URL = `https://pokeapi.co/api/v2/pokemon?limit=${pokeAmount}&offset=0`
     let responseToJson = await(await fetch(BASE_URL)).json();
     let pokeResults = responseToJson.results;
@@ -128,16 +134,13 @@ async function loadMore(type) {
         let name = pokeResults[i].name;
         let specs = await loadSpecs(pokeResults[i].url);
         savePokemon(name, specs)
-     } 
+     }
+    disableLoadingSpinner()
     showTypPokemons(type)
 }
 
-function emptyMessage(pokeListOfTypes) { 
-    try {
+function searchTypPokemon(pokeListOfTypes, type) { 
         if (pokeListOfTypes.length === 0) {
-            document.getElementById('poke-gallery').innerHTML = message();
-        } else {
-            document.getElementById('message-empty').setAttribute('style','display: none');
+            loadMore(type)
         }
-    } catch (error) {    
-    }}
+    }

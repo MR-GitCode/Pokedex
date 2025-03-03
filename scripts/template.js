@@ -106,7 +106,3 @@ function renderPageNumber(pageNum) {
 function renderAbilities(ability) {
     return `<p>${ability}</p>`
 }
-
-function message() {
-    return '<h2 id="message-empty">Press the button again</h2>';
-}

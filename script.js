@@ -57,10 +57,12 @@ function renderTypNav() {
 
 function loadingSpinner() {
     document.getElementById('loading-spinner').classList.remove('hidden');
+    document.body.classList.add('no-scroll');
 }
 
 function disableLoadingSpinner() {
     document.getElementById('loading-spinner').classList.add('hidden');
+    document.body.classList.remove('no-scroll');
 }
 
 function toggleMenu() {

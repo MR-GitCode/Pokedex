@@ -1,9 +1,13 @@
 header{
     height: 100px;
     background-color: rgb(33, 43, 49);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
-.header { 
+.header {
     height: 100px;
     display: flex;
     justify-content: space-between;

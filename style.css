@@ -10,6 +10,10 @@ body{
     height: 100vh;
 }
 
+body.no-scroll {
+    overflow: hidden;
+}
+
 footer{
     height: 80px;
     background-color: rgb(33, 43, 49);

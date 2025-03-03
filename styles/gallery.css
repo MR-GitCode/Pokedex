@@ -26,6 +26,7 @@
 }
 
 #poke-gallery{
+    margin-top: 100px;
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
@@ -95,14 +96,4 @@
 
 .bt-pagebar:active {
     transform: scale(0.95);
-}
-
-#message-empty{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    color: rgb(255, 191, 0);
-    font-size: 30px;
-    filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.5));
-    margin: 20px;
 }
