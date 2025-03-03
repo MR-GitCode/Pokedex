@@ -30,7 +30,7 @@
             <div class="menu-nav"></div>
             <div id="typ-nav" class="typ-nav"></div>
             <div class="fx-ct">
-                <form>
+                <form id="poke-search">
                     <input class="search-input" type="search" id="pokeSearch" name="q" oninput="searchPokemon(event)" placeholder="Search here...">
                 </form>
                 <img id="nav-menu-icon" onclick="toggleMenu()" src="./assets/icons/hamburger-menu-icon.svg">               
@@ -42,7 +42,7 @@
         <div class="mx-wth" id="poke-gallery"></div>
         
         <div id="back-button">
-            <a class="bt-back bt-pagebar" href="./index.html">BACK</a>
+            <a class="bt-back bt-pagebar" onclick="backButton()">BACK</a>
             <div id="bt-loadMore" class="bt-loadMore bt-pagebar" onclick="loadMore()">LOAD MORE</div>
         </div>
 

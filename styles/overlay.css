@@ -16,6 +16,7 @@ body.no-scroll {
     right: 0;
     bottom: 0;
     background-color: rgba(226, 224, 227,0.5);
+    z-index: 1000;
 }
 
 .overlay-card{

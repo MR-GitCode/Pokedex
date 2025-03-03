@@ -2,6 +2,7 @@ let maxPokemons = 600;
 let currentPage = 1;
 let amountPerPage = parseInt(document.getElementById('pokeLimit').value);
 let maxPages = Math.ceil(maxPokemons / amountPerPage);
+let debounceTimer;
 
 function amountPerSite() {
     pokeAmount = parseInt(document.getElementById("pokeLimit").value);
@@ -21,7 +22,6 @@ function changePage(page) {
 function changePageNumbers() {
     let pageChanger = document.querySelector(".page-numbers");
     pageChanger.innerHTML = "";
-    
     for (let i = 0; i < 4; i++) {
         let pageNum = currentPage + i;
         if (pageNum > maxPages) break;
@@ -54,7 +54,7 @@ function pageEnd() {
 
 function proveMaxPage() {
     maxPages = Math.ceil(maxPokemons / amountPerPage);
-    changePage(maxPages)
+    changePage(1)
 }
 
 function savePokemon(name, specs) {
@@ -69,14 +69,18 @@ function savePokemon(name, specs) {
 }
 
 function searchPokemon(event) {
-    const input = event.target.value.toLowerCase();
-    if (input.length < 3) {
-        document.getElementById('poke-gallery').innerHTML = "";
-        configPagebar(0)
-        return;
-    }
-    currentPokemons = pokeList.filter(pokemon => pokemon.name.includes(input))
-    showPokeSearch(currentPokemons)
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+        const input = event.target.value.toLowerCase();
+        if (input.length < 3) {
+            document.getElementById('poke-gallery').innerHTML = "";
+            configPagebar(0);
+            return;
+        }
+        configPagebar(0);
+        currentPokemons = pokeList.filter(pokemon => pokemon.name.includes(input));
+        showPokeSearch(currentPokemons);
+    }, 300);
 }
 
 function showPokeSearch(currentPokemons) {
@@ -144,3 +148,10 @@ function searchTypPokemon(pokeListOfTypes, type) {
             loadMore(type)
         }
     }
+    
+function backButton() {
+    loadDatabank()
+    document.getElementById('back-button').setAttribute('style','display: none');
+    document.getElementById('pagebar').setAttribute('style','display: flex');
+    document.getElementById('poke-search').reset();
+}
