@@ -5,9 +5,17 @@ async function loadOverlay(pokeId) {
     let data = await getData(pokeId)
     let typ = data.types[0].type.name;
     overlay.innerHTML = "";
-    overlay.innerHTML = renderOverlay(data, typ); 
+    overlay.innerHTML = renderOverlay(data, typ);
+    lefButtonDisabled(pokeId)
     loadAbout(pokeId)
     loadTypesOverlay(data)
+}
+
+function lefButtonDisabled(pokeId) {
+    if (pokeId == 1) {      
+        document.getElementById('button-left').classList.add('hidden');
+        document.getElementById('overlay-buttons').setAttribute('style', 'justify-content: flex-end;');
+    }
 }
 
 function loadTypesOverlay(data) {
@@ -93,7 +101,6 @@ async function renderEvolutions() {
     for (let i = 0; i < evoList.length; i++) {
         let pokemon = evoList[i].name;
         let data = await getData(pokemon);
-        console.log(data);
         pokeEvo.innerHTML += evolutionTemplate(data)
     }
     evoList = [];
@@ -101,7 +108,7 @@ async function renderEvolutions() {
 
 function beforePokemon(pokeId) {
     let beforePokemon = pokeId -1;
-    loadOverlay(beforePokemon)
+    loadOverlay(beforePokemon) 
 }
 
 function nextPokemon(pokeId) {

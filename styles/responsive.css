@@ -9,6 +9,10 @@
 }
 
 @media (max-width: 900px) {
+    header{
+        height: 60px;
+    }
+    
     .header {
         height: 60px;
     }
@@ -33,6 +37,10 @@
         width: 30px;
         padding-left: 10px;
         cursor: pointer;
+    }
+
+    #loading-spinner{
+        top: 60px;
     }
 }
 

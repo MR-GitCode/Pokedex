@@ -23,6 +23,7 @@ body.no-scroll {
     flex-direction: column;
     height: 550px;
     width: 400px;
+    margin: 0 2%;
     color: white;
     filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 1));
 }

@@ -1,13 +1,12 @@
+let pokeAmount = 10;
+const BASE_URL = `https://pokeapi.co/api/v2/pokemon?limit=${pokeAmount}&offset=0`
+const POKE_URL = "https://pokeapi.co/api/v2/pokemon/"
+const SPECIES_URL = "https://pokeapi.co/api/v2/pokemon-species/"
+
 function init() {
     loadDatabank()
     renderTypNav()
 }
-
-let pokeAmount = 10;
-
-const BASE_URL = `https://pokeapi.co/api/v2/pokemon?limit=${pokeAmount}&offset=0`
-const POKE_URL = "https://pokeapi.co/api/v2/pokemon/"
-const SPECIES_URL = "https://pokeapi.co/api/v2/pokemon-species/"
 
 async function loadDatabank(url = BASE_URL) {
     let response = await fetch(url)
@@ -30,7 +29,7 @@ async function loadPokemon(pokeResults) {
         savePokemon(name, specs)
         loadTypes(specs)
     }
-    disableLoadingSpinner()   
+    disableLoadingSpinner() 
 }
 
 function loadTypes(specs) {
@@ -68,4 +67,12 @@ function toggleMenu() {
     document.querySelector(".menu-nav").classList.toggle("menu-hidden");
     document.querySelector(".typ-nav").classList.toggle("menu-typ-nav");
     document.querySelector(".poke-gallery").classList.toggle("menu-pk-gy");
+}
+
+function imageError(imageElement, newSrc) {
+    try {
+        console.clear();
+        imageElement.src = newSrc
+    } catch (e) {
+    }
 }

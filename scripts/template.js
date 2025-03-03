@@ -5,7 +5,7 @@ function renderGallery(name, specs, typName) {
                     <h3>${name}</h3>
                 </div>
                 <div class="poke-img ${typName}" >
-                    <img src="${specs.sprites.versions['generation-v']['black-white'].animated.front_shiny}" onerror="this.onerror=null; this.src='${specs.sprites.front_shiny}'">
+                    <img src="${specs.sprites.versions['generation-v']['black-white'].animated.front_shiny}" onerror="imageError(this, '${specs.sprites.front_shiny}')">
                 </div>
                 <div id="poke-footer${specs.id}" class="poke-footer">
                 </div>
@@ -33,10 +33,10 @@ function renderOverlay(data, typ) {
             </div>
 
             <div class="overlay-img-content ${typ}">
-                <img class="overlay-img" src="${data.sprites.versions['generation-v']['black-white'].animated.front_shiny}" onerror="this.onerror=null; this.src='${data.sprites.front_shiny}'">
+                <img class="overlay-img" src="${data.sprites.versions['generation-v']['black-white'].animated.front_shiny}" onerror="imageError(this, '${data.sprites.front_shiny}')">
                 <div id="overlay-type${data.id}" class="typs-overlay"></div>
-                <div class="overlay-buttons" >
-                    <p class="bt button-left" onclick="beforePokemon(${data.id})"></p>
+                <div id="overlay-buttons" class="overlay-buttons" >
+                    <p id="button-left" class="bt button-left" onclick="beforePokemon(${data.id})"></p>
                     <p class="bt button-right" onclick="nextPokemon(${data.id})"></p>
                 </div> 
             </div>
@@ -92,7 +92,7 @@ function renderStats(statName, statValue) {
 
 function evolutionTemplate(data) {
     return `<div class="evolution">
-                <img class="evo-img" src="${data.sprites.versions['generation-v']['black-white'].animated.front_shiny}" alt="${data.name}" onerror="this.onerror=null; this.src='${data.sprites.front_shiny}'">
+                <img class="evo-img" src="${data.sprites.versions['generation-v']['black-white'].animated.front_shiny}" onerror="imageError(this, '${data.sprites.front_shiny}')" alt="${data.name}">
                 <p>${data.name}</p>
             </div>`
 }
@@ -105,4 +105,8 @@ function renderPageNumber(pageNum) {
 
 function renderAbilities(ability) {
     return `<p>${ability}</p>`
+}
+
+function message() {
+    return '<h2 id="message-empty">Press the button again</h2>';
 }

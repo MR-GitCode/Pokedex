@@ -41,10 +41,15 @@
     <section class="poke-gallery fx-1">
         <div class="mx-wth" id="poke-gallery"></div>
         
-        <div class="pagebar">
+        <div id="back-button">
+            <a class="bt-back bt-pagebar" href="./index.html">BACK</a>
+            <div id="bt-loadMore" class="bt-loadMore bt-pagebar" onclick="loadMore()">LOAD MORE</div>
+        </div>
+
+        <div id="pagebar" class="pagebar">
             <ul class="page-changer">
                 <li onclick="pageFirst()">
-                    <p><<</p>
+                    <p><<  </p>
                 </li>
                 <li onclick="pageMinus()">
                     <p><</p>
@@ -67,19 +72,19 @@
                     <p>></p>
                 </li>
                 <li onclick="pageEnd()">
-                    <p>>></p>
+                    <p>  >></p>
                 </li>
             </ul>
 
             <div>
-                <label for="pokeLimit"><span>Zeige:</span></label>
+                <label for="pokeLimit"><span>Show:</span></label>
                 <select id="pokeLimit" onchange="amountPerSite()">
                     <option value="10"selected>10</option>
                     <option value="20">20</option>
                     <option value="30">30</option>
                     <option value="40">40</option>
                 </select>
-                <span>pro Seite</span>
+                <span>cards per page</span>
             </div>
         </div>
 

@@ -1,6 +1,7 @@
+let maxPokemons = 640;
 let currentPage = 1;
 let amountPerPage = parseInt(document.getElementById('pokeLimit').value);
-let maxPages = Math.ceil(1000 / amountPerPage);
+let maxPages = Math.ceil(maxPokemons / amountPerPage);
 
 function amountPerSite() {
     pokeAmount = parseInt(document.getElementById("pokeLimit").value);
@@ -47,7 +48,7 @@ function pageFirst() {
 }
 
 function pageEnd() {
-    let maxPages = Math.ceil(1000 / amountPerPage);
+    let maxPages = Math.ceil(maxPokemons / amountPerPage);
     changePage(maxPages);
 }
 
@@ -66,6 +67,7 @@ function searchPokemon(event) {
     const input = event.target.value.toLowerCase();
     if (input.length < 3) {
         document.getElementById('poke-gallery').innerHTML = "";
+        configPagebar(0)
         return;
     }
     currentPokemons = pokeList.filter(pokemon => pokemon.name.includes(input))
@@ -87,10 +89,11 @@ function showTypPokemons(type) {
             pokeListOfTypes.push ({
                 name: pokeList[i].name,
                 url: pokeList[i].url 
-            })}
-    }
-    disableLoadingSpinner() 
+            })}}
+    disableLoadingSpinner()
+    configPagebar(type)
     loadPokemon(pokeListOfTypes)
+    emptyMessage(pokeListOfTypes)
 }
 
 function typeCompare(i, type) {
@@ -101,3 +104,40 @@ function typeCompare(i, type) {
     }
     return false;
 }
+
+function configPagebar(i) {
+    if (i === 0) {
+        document.getElementById('back-button').setAttribute('style','display: flex');
+        document.getElementById('bt-loadMore').setAttribute('style','display: none !important');
+        document.getElementById('pagebar').setAttribute('style','display: none');  
+    } else {
+        document.getElementById('back-button').setAttribute('style','display: flex');
+        document.getElementById('pagebar').setAttribute('style','display: none');
+        document.getElementById('bt-loadMore').onclick = function() {
+            loadMore(i);
+        };
+    }      
+}
+
+async function loadMore(type) {
+    pokeAmount += 100;
+    let BASE_URL = `https://pokeapi.co/api/v2/pokemon?limit=${pokeAmount}&offset=0`
+    let responseToJson = await(await fetch(BASE_URL)).json();
+    let pokeResults = responseToJson.results;
+    for (let i = 0; i < pokeResults.length; i++) {
+        let name = pokeResults[i].name;
+        let specs = await loadSpecs(pokeResults[i].url);
+        savePokemon(name, specs)
+     } 
+    showTypPokemons(type)
+}
+
+function emptyMessage(pokeListOfTypes) { 
+    try {
+        if (pokeListOfTypes.length === 0) {
+            document.getElementById('poke-gallery').innerHTML = message();
+        } else {
+            document.getElementById('message-empty').setAttribute('style','display: none');
+        }
+    } catch (error) {    
+    }}

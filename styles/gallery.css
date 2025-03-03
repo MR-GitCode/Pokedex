@@ -56,3 +56,53 @@
 #pokeLimit{
     cursor: pointer;
 }
+
+#back-button{
+   display: none;
+   justify-content: center;
+   align-items: center;
+   gap: 20px;
+   margin: 10px;
+   filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.5));
+}
+
+.bt-back{
+    width: 100px;
+
+}
+
+.bt-loadMore {
+    width: 180px;
+}
+
+.bt-pagebar{
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(33, 43, 49);
+    color: white;
+    font-size: 24px;
+    height: 30px;
+    border-radius: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.bt-pagebar:hover {
+    background-color: rgb(50, 58, 63);
+    transform: scale(1.1);
+}
+
+.bt-pagebar:active {
+    transform: scale(0.95);
+}
+
+#message-empty{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: rgb(255, 191, 0);
+    font-size: 30px;
+    filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.5));
+    margin: 20px;
+}
